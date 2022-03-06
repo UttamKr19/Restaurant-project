@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test DisplayText Matches snapshot 1`] = `
+<body>
+  <div>
+    <form>
+      <div>
+        <label>
+          Enter your name
+        </label>
+      </div>
+      <div>
+        <input
+          data-testid="user-input"
+          value=""
+        />
+        <button
+          data-testid="input-submit"
+        >
+          Show Messgae
+        </button>
+      </div>
+      <div>
+        <label
+          data-testid="final-msg"
+        />
+      </div>
+    </form>
+  </div>
+</body>
+`;
+
+exports[`Test DisplayText matches snapshot 1`] = `
+<body>
+  <div>
+    <form>
+      <div>
+        <label>
+          Enter your name
+        </label>
+      </div>
+      <div>
+        <input
+          data-testid="user-input"
+          value=""
+        />
+        <button
+          data-testid="input-submit"
+        >
+          Show Messgae
+        </button>
+      </div>
+      <div>
+        <label
+          data-testid="final-msg"
+        />
+      </div>
+    </form>
+  </div>
+</body>
+`;

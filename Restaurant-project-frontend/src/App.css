@@ -1,0 +1,23 @@
+#root{
+    background-image: url("https://media.istockphoto.com/photos/empty-wooden-table-top-with-blur-coffee-shop-or-restaurant-interior-picture-id914940152?k=20&m=914940152&s=170667a&w=0&h=JlGipoQues-hnqytodcWZIUD_0MCTfS8eYGVLjyuCXg=");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* filter: blur(6px); */
+}
+
+#bg-img{
+    
+}
+.component{
+    min-height: 580px;
+}
+
+#meal-home{
+    margin-top: -15px;
+    background-image: url("https://t3.ftcdn.net/jpg/02/97/67/70/360_F_297677001_zX7ZzRq8DObUV5IWTHAIhAae6DuiEQh4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    filter: contrast(125%)
+}

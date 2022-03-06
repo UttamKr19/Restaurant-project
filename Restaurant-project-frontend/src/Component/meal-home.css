@@ -1,0 +1,29 @@
+.explore-button{
+    text-decoration: solid;
+    color: white;
+    padding: 20px;
+}
+
+.explore-button button{
+    width: 200px;
+    padding: 20px;
+    font-weight: bolder;
+    font-size: 20px;
+    border-radius: 30px;
+    color: rgba(61, 61, 61, 0.404);
+    color: white;
+    background-color: rgba(168, 0, 0, 0.151);
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.home-content{
+    /* margin-top: 100px; */
+}
+
+.food-bites-text{
+    font-size: 40px;
+    columns: yellow;
+}
