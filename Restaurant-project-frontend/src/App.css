@@ -1,3 +1,4 @@
+body { overflow-x: hidden; }
 #root{
     background-image: url("bg-root.jpg");
     background-repeat: no-repeat;
@@ -14,7 +15,7 @@
 #meal-home{
     background-image: url("bg-home-largest.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-size: cover;
     filter: contrast(115%);
     min-height: 650px;
@@ -26,4 +27,33 @@
     padding: 20px;
     margin-top: 50px;
     filter: none;
+}
+
+
+
+
+.explore-button{
+    text-decoration: solid;
+    color: white;
+    padding: 20px;
+}
+
+.explore-button button{
+    width: 200px;
+    padding: 20px;
+    font-weight: bolder;
+    font-size: 20px;
+    border-radius: 30px;
+    color: rgba(245, 241, 241, 0.541);
+    color: white;
+    background-color: rgba(168, 0, 0, 0.151);
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.food-bites-text{
+    font-size: 40px;
+    columns: yellow;
 }

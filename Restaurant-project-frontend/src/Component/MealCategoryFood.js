@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MEALDB_API_BASE_URL from '../api/MealDbServiceApi';
-import './meal-home.css';
+import '../App.css';
 export default function MealCategoryFood(props) {
 
     const [categoryFoodData, setCategoryFoodData] = useState();
@@ -18,8 +18,8 @@ export default function MealCategoryFood(props) {
 
     const cardStyle = {
         height: '100%',
-        maxWidth: '300px',
-        minWidth: '200px',
+        maxWidth: '400px',
+        minWidth: '100px',
         color: 'white',
         textShadow: '2px 1px black',
         backgroundColor: "rgba(112, 111, 111, 0.39)",
@@ -34,7 +34,7 @@ export default function MealCategoryFood(props) {
                 <div>
                     <div className="card" style={cardStyle}>
                         <img className="card-img-top" src={item.strMealThumb}
-                            alt="meal-pic" style={{ width: "100%" }}
+                            alt="meal-pic"
                             datatoggle='tooltip' title={item.strMeal} />
                         <div className="card-body ">
                             <div className="card-title" style={cardBodyStyle}>
@@ -61,18 +61,13 @@ export default function MealCategoryFood(props) {
 
         <div className='component'>
 
-            <div className=" h-100 d-flex justify-content-center text-center" style={{ padding: "10px" }}>
-                <div className="card-deck">
+            <div className="text-center" >
+            <div className=" row justify-content-center card-deck"  style={{padding:"10px"}}>
                     {categoryFoodContent}
                 </div>
             </div>
 
         </div>
-        // <div className="text-center">
-        //     <div className="card-deck">
-        //         {categoryFoodContent}
-        //     </div>
-        // </div>
 
     )
 }

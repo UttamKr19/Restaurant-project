@@ -94,27 +94,39 @@ export default function MealOrder(props) {
         history.push("/categories")
     }
 
-
+    const orderStyle = {
+        padding: '10px 20px 0px 20px',
+        // maxWidth: '600px',  
+        // margin: 'auto',
+        // marginTop: '20px',
+        backgroundColor: 'rgba(20, 20, 20, 0.7)',
+        borderRadius: '20px',
+        color: 'white',
+        fontSize: '20px',
+        textShadow: '2px 1px black'
+    }
     return (
         <div className='component' >
             <div className="row">
                 <div className="col-sm-6">
-                    <div className="card">
+                    <div className="card" style={orderStyle}>
                         <div className="card-body text-center">
-                            <img src={meal?.strMealThumb} className="card-img-top" alt="meal-item-pic" style={{ maxWidth: "600px" }} />
+                            <img src={meal?.strMealThumb} className="card-img-top" alt="meal-item-pic" style={{ maxWidth: "400px" }} />
                         </div>
+                        <label>Instructions</label>
+                        <p style={{ maxHeight: "180px", overflow: "scroll" }}>{meal?.strInstructions}</p>
                     </div>
                 </div>
                 <div className="col-sm-6">
-                    <div className="card">
+                    <div className="card" style={orderStyle}>
                         <div className="card-body">
                             <h3 className="card-title text-center"> <b>{meal?.strMeal}</b></h3>
 
                             <p className="card-text">Category: <b>{meal?.strCategory}</b></p>
                             <p className='card-text'><label>Area</label>: <b>{meal?.strArea}</b> </p>
+                            <p><label>Recipe</label>: <a href={meal?.strSource} style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "500px" }}>{meal?.strSource}</a> </p>
                             <p><label>Youtube</label>: <a href={meal?.strYoutube} style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "500px" }}>{meal?.strYoutube}</a> </p>
-                            <label>Instructions</label>
-                            <p style={{ maxHeight: "180px", overflow: "scroll" }}>{meal?.strInstructions}</p>
+
                             <label>Quantity</label>
                             <input type="number" className="form-control"
                                 placeholder="quantity" required="required" id="quantity" min={1}
@@ -124,7 +136,10 @@ export default function MealOrder(props) {
                                 <div className="card p-10">
                                     <div className="card">
                                         <p className='text-center' style={{ fontSize: "40px", color: "black" }}>Rs. <b>{order.price}</b></p>
-                                        <button className="btn btn-success btn-block"><b>Place Order</b></button>
+                                        <div >
+                                            <button style={{height:"50px", fontSize:"24px"}} className="btn btn-success btn-block"><b>Place Order</b></button>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </form>

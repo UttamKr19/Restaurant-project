@@ -2,12 +2,11 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SERVER_API_BASE_URL from '../api/ServerApi';
-import './meal-home.css';
+import '../App.css';
 import MealOrder from './MealOrder';
 export default function MealHome() {
 
-    const [displayContent, setDisplayContent] = useState('meal');
-
+   
     useEffect(() => {
         if (!localStorage.getItem('isBackendUp')) {
             let url = SERVER_API_BASE_URL
@@ -17,11 +16,6 @@ export default function MealHome() {
             }).catch(error => { console.log(error) })
         }
     }, [])
-
-
-    if (displayContent === 'order') {
-        return <MealOrder />
-    }
 
     return (
         <div id="meal-home" className='component'>

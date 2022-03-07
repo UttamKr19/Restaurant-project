@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import MEALDB_API_BASE_URL from '../api/MealDbServiceApi';
 import MealCategoryFood from './MealCategoryFood';
-import './meal-home.css';
+import '../App.css';
 
 
 export default function MealCategories() {
@@ -27,13 +27,13 @@ export default function MealCategories() {
 
     const cardStyle = {
         height: '100%',
-        maxWidth: '300px',
-        minWidth: '200px',
+        // maxWidth: '350px',
+        minWidth:'100px',
         color: 'white',
         textShadow: '2px 1px black',
         backgroundColor: "rgba(112, 111, 111, 0.39)",
         cursor: 'pointer',
-        padding:"10px"
+        padding:"5px"
     }
     const contentInit = mealCategoryData?.map((item) => {
         return (
@@ -56,10 +56,10 @@ export default function MealCategories() {
         )
     })
 
-    return <div className='component'>
+    return <div className='component justify-content-center '>
 
-        <div className=" h-100 d-flex justify-content-center" style={{padding:"20px"}}>
-            <div className="card-deck">
+        <div className="">
+            <div className=" row justify-content-center card-deck"  style={{padding:"10px"}}>
                 {categoryDisplay === true ? contentInit : categoryContent}
             </div>
         </div>
