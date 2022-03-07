@@ -1,5 +1,5 @@
 #root{
-    background-image: url("https://media.istockphoto.com/photos/empty-wooden-table-top-with-blur-coffee-shop-or-restaurant-interior-picture-id914940152?k=20&m=914940152&s=170667a&w=0&h=JlGipoQues-hnqytodcWZIUD_0MCTfS8eYGVLjyuCXg=");
+    background-image: url("bg-root.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -7,18 +7,15 @@
     /* filter: blur(6px); */
 }
 
-#bg-img{
-    
-}
 .component{
     min-height: 650px;
 }
 
 #meal-home{
-    background-image: url("https://www.chennaispice.com/wp-content/uploads/2021/04/Untitled-design-15.jpg");
+    background-image: url("bg-home-largest.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* background-size: cover; */
+    background-size: cover;
     filter: contrast(115%);
     min-height: 650px;
     font-family: cursive;
@@ -27,5 +24,6 @@
 .home-content{
     float: left;
     padding: 20px;
-    margin-top: 100px;
+    margin-top: 50px;
+    filter: none;
 }

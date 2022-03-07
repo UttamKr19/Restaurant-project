@@ -54,8 +54,7 @@ export default function Register() {
 
     const registerStyle = {
         padding:'10px 20px 0px 20px',
-        minWidth: '300px',
-        width:'600px',
+        maxWidth: '600px',  
         margin: 'auto',
         marginTop: '20px',
         backgroundColor: 'rgba(20, 20, 20, 0.7)',
@@ -95,9 +94,9 @@ export default function Register() {
                             value={user.address} onChange={(e) => setUser({...user,"address":e.target.value})} 
                             />
                     </div>
-
+                    <hr/>
                     <div>
-                        <button className="btn btn-success btn-block">Register</button>
+                        <button className="btn btn-success btn-block" style={{height:"50px"}}>Register</button>
                     </div>
 
                 </form>
