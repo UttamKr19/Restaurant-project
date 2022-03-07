@@ -25,7 +25,7 @@ export default function MealOrder(props) {
         price: '',
         user: ''
     })
-   
+
     useEffect(
 
         () => {
@@ -89,69 +89,48 @@ export default function MealOrder(props) {
         }
     }
 
-    
+
     if (location.state == null) {
         history.push("/categories")
     }
 
-    const descriptionStyle = {
-        padding: '10px',
-        width: '40%',
-        maxHeight: "560px",
-        margin: 'auto',
-        borderRadius: '20px',
-        color: 'white',
-        fontSize: '20px',
-        textShadow: '2px 1px black',
-        float: "right",
-        backgroundColor: 'rgba(112, 111, 111, 0.39)',
-        overflow: 'auto'
-    }
-
-
-    const orderStyle = {
-        padding: '10px',
-        width: '50%',
-        maxHeight: "580px",
-        margin: 'auto',
-        borderRadius: '20px',
-        color: 'white',
-        fontSize: '20px',
-        textShadow: '2px 1px gray',
-        float: "left",
-        backgroundColor: 'rgba(112, 111, 111, 0.39)'
-    }
 
     return (
         <div className='component' >
-            <div id="orderForm" style={orderStyle} >
-                <form onSubmit={placeOrder}>
-                    <div className="card p-10">
-                        <img src={meal?.strMealThumb} className="card-img-top" alt="meal-item-pic" style={{ height: "400px" }} />
-                        <div className="card">
-                            <p className='text-center' style={{ fontSize: "40px" ,color:"black"}}>Rs. <b>{order.price}</b></p>
-                            <button className="btn btn-success btn-block"><b>Place Order</b></button>
+            <div className="row">
+                <div className="col-sm-6">
+                    <div className="card">
+                        <div className="card-body text-center">
+                            <img src={meal?.strMealThumb} className="card-img-top" alt="meal-item-pic" style={{ maxWidth: "600px" }} />
                         </div>
                     </div>
-
-                </form>
-            </div>
-
-            <div id="description" style={descriptionStyle}>
-                <div>
-                    <h3 className="card-title text-center">{meal?.strMeal}</h3>
-                    <label >Category: {meal?.strCategory}</label><br/>
-                    <label>Area</label>: {meal?.strArea} <br />
-                    <label>Youtube</label>: <a href={meal?.strYoutube} style={{whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{meal?.strYoutube}</a> <br />
-                    <label>Instructions</label>
-                    <p style={{ maxHeight: "150px", overflow: "scroll" }}>{meal?.strInstructions}</p>
                 </div>
-                <label>Quantity</label>
-                <input type="number" className="form-control" required
-                    value={order.quantity}
-                    onChange={(e) => setOrder({ ...order, "quantity": e.target.value })}
-                    min={1} />
-                <hr />
+                <div className="col-sm-6">
+                    <div className="card">
+                        <div className="card-body">
+                            <h3 className="card-title text-center"> <b>{meal?.strMeal}</b></h3>
+
+                            <p className="card-text">Category: <b>{meal?.strCategory}</b></p>
+                            <p className='card-text'><label>Area</label>: <b>{meal?.strArea}</b> </p>
+                            <p><label>Youtube</label>: <a href={meal?.strYoutube} style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "500px" }}>{meal?.strYoutube}</a> </p>
+                            <label>Instructions</label>
+                            <p style={{ maxHeight: "180px", overflow: "scroll" }}>{meal?.strInstructions}</p>
+                            <label>Quantity</label>
+                            <input type="number" className="form-control"
+                                placeholder="quantity" required="required" id="quantity" min={1}
+                                value={order.quantity} onChange={(e) => setOrder({ ...order, "quantity": e.target.value })}
+                            />
+                            <form onSubmit={placeOrder}>
+                                <div className="card p-10">
+                                    <div className="card">
+                                        <p className='text-center' style={{ fontSize: "40px", color: "black" }}>Rs. <b>{order.price}</b></p>
+                                        <button className="btn btn-success btn-block"><b>Place Order</b></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

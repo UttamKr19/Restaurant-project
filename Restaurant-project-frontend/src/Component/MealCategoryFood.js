@@ -17,33 +17,33 @@ export default function MealCategoryFood(props) {
     }, [props.category]) // added dependency later
 
     const cardStyle = {
-        height: '100%', 
-        maxWidth: '250px', 
-        minWidth:'200px',
-        color:'white',
+        height: '100%',
+        maxWidth: '300px',
+        minWidth: '200px',
+        color: 'white',
         textShadow: '2px 1px black',
-        backgroundColor: "rgba(112, 111, 111, 0.39)"
+        backgroundColor: "rgba(112, 111, 111, 0.39)",
+
     }
 
-    const cardBodyStyle={ fontSize: '20px',whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",maxWidth:"200px"}
+    const cardBodyStyle = { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", }
 
     const categoryFoodContent = categoryFoodData?.map((item) => {
         return (
             <div key={item.idMeal} >
                 <div>
-                    <div className="card " style={cardStyle}>
+                    <div className="card" style={cardStyle}>
                         <img className="card-img-top" src={item.strMealThumb}
                             alt="meal-pic" style={{ width: "100%" }}
                             datatoggle='tooltip' title={item.strMeal} />
-                        <div className="card-body">
-                            <h4 className="card-title" 
-                                style={cardBodyStyle}>
-                                    {item.strMeal}
-                            </h4>
+                        <div className="card-body ">
+                            <div className="card-title" style={cardBodyStyle}>
+                                <span className='text-center justify-content-center h4'>{item.strMeal}</span>
+                            </div>
                             <Link
                                 to={{
                                     pathname: '/order',
-                                    state: { item: item, category: props.category,idMeal:item.idMeal }
+                                    state: { item: item, category: props.category, idMeal: item.idMeal }
                                 }}
                             >
                                 <button className="btn btn-primary">Order Now</button>
@@ -58,11 +58,21 @@ export default function MealCategoryFood(props) {
 
 
     return (
-        <div className="text-center">
-            <div className="card-deck">
-                {categoryFoodContent}
+
+        <div className='component'>
+
+            <div className=" h-100 d-flex justify-content-center text-center" style={{ padding: "10px" }}>
+                <div className="card-deck">
+                    {categoryFoodContent}
+                </div>
             </div>
+
         </div>
+        // <div className="text-center">
+        //     <div className="card-deck">
+        //         {categoryFoodContent}
+        //     </div>
+        // </div>
 
     )
 }

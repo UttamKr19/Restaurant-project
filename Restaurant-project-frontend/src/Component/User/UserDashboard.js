@@ -57,7 +57,7 @@ export default function UserDashboard() {
         padding: '10px 20px 0px 20px',
         margin: 'auto',
         marginTop: '20px',
-        backgroundColor: 'rgba(245, 245, 245, 0.341)',
+        backgroundColor: 'rgba(20, 20, 20, 0.7)',
         borderRadius: '20px',
         color: 'white',
         fontSize: '20px',

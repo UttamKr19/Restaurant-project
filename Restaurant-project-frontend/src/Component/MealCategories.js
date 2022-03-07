@@ -26,13 +26,14 @@ export default function MealCategories() {
     }
 
     const cardStyle = {
-        height: '100%', 
-        maxWidth: '300px', 
-        minWidth: '200px', 
-        color:'white',
+        height: '100%',
+        maxWidth: '300px',
+        minWidth: '200px',
+        color: 'white',
         textShadow: '2px 1px black',
         backgroundColor: "rgba(112, 111, 111, 0.39)",
-        cursor:'pointer'
+        cursor: 'pointer',
+        padding:"10px"
     }
     const contentInit = mealCategoryData?.map((item) => {
         return (
@@ -43,7 +44,7 @@ export default function MealCategories() {
                             alt="meal-category-pic"
                             style={{ width: "100%" }}
                             datatoggle='tooltip' title={item.strCategoryDescription}
-                            dataplacement="bottom"></img>   
+                            dataplacement="bottom"></img>
                         <h4 className="card-title font-weight-bold text-center"  >{item.strCategory}</h4>
                     </div>
                 </div>
@@ -55,10 +56,14 @@ export default function MealCategories() {
         )
     })
 
-    return <div className="component no-gutter d-flex justify-content-center align-items-center">
-        <div className="card-deck">
-            {categoryDisplay === true ? contentInit : categoryContent}
+    return <div className='component'>
+
+        <div className=" h-100 d-flex justify-content-center" style={{padding:"20px"}}>
+            <div className="card-deck">
+                {categoryDisplay === true ? contentInit : categoryContent}
+            </div>
         </div>
+
     </div>
 
 }

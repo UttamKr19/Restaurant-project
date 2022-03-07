@@ -43,8 +43,8 @@ export default function MealHeader() {
 
     return (
         <div className="routing">
-            <ul style={{ fontSize: '20px' }}>
-                <li><Link to="/"><img style={{ height: '30px' }} src="..\foodbites_logo.png" alt="logo"></img></Link></li>
+            <ul style={{ fontSize: '20px',marginBottom:"0px" }}>
+                <li><Link to="/"><img style={{ height: '20px' }} src="..\foodbites_logo.png" alt="logo"></img></Link></li>
                 <li> <Link to="/">Home</Link> </li>
                 <li> <Link to="/categories">Categories</Link> </li>
                 <li> <Link to="/feedback">Feedback</Link> </li>

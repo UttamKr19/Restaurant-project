@@ -3,6 +3,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    min-height: 650px;
     /* filter: blur(6px); */
 }
 
@@ -10,14 +11,21 @@
     
 }
 .component{
-    min-height: 580px;
+    min-height: 650px;
 }
 
 #meal-home{
-    margin-top: -15px;
-    background-image: url("https://t3.ftcdn.net/jpg/02/97/67/70/360_F_297677001_zX7ZzRq8DObUV5IWTHAIhAae6DuiEQh4.jpg");
+    background-image: url("https://www.chennaispice.com/wp-content/uploads/2021/04/Untitled-design-15.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
-    filter: contrast(125%)
+    /* background-size: cover; */
+    filter: contrast(115%);
+    min-height: 650px;
+    font-family: cursive;
+}
+
+.home-content{
+    float: left;
+    padding: 20px;
+    margin-top: 100px;
 }

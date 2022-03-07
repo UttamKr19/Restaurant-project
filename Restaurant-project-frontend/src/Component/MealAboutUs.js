@@ -10,13 +10,13 @@ export default function MealAboutUs() {
     }
     return (
         <div className="container component" style={aboutStyle} >
-            <p className='text-white text-center' style={{ fontSize: "30px", padding: "20px" }} >Food Bites is a restaurant web app</p>
+            <p className='text-white text-center' style={{ fontSize: "30px", padding: "20px" }} >Food Bites is a restaurant web app, developed solely for learning purposes</p>
             <h3>Features:</h3>
             <h5>> User can create a new account (SignIn/SignUp).</h5>
             <h5>> User can explore food from different categories and order food. </h5>
             <h5>> User can provide anonymous feedbacks without logging into the website.</h5>
             <hr />
-            <h3>> Technologies used:</h3>
+            <h3>Technologies used:</h3>
             <h5>> This single page web appication is based on <b>ReactJs</b> and Java's <b>Spring Boot Framework</b>.</h5>
             <h5>> It follows <b>Model-View-Controller</b> architecture, and communicates using <b>RestFul APIs</b>.</h5>
             <h5>> External API used: TheMealDB API, for the data related to meals. </h5>

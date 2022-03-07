@@ -58,7 +58,7 @@ export default function Register() {
         width:'600px',
         margin: 'auto',
         marginTop: '20px',
-        backgroundColor:'rgba(255, 255, 255, 0.171)',
+        backgroundColor: 'rgba(20, 20, 20, 0.7)',
         borderRadius:'20px',
         color:'white',
         fontSize:'20px',

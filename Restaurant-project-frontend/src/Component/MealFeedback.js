@@ -57,7 +57,7 @@ export default function MealFeedback() {
         minWidth: '600px',
         margin: 'auto',
         marginTop: '20px',
-        backgroundColor:'rgba(255, 255, 255, 0.171)',
+        backgroundColor: 'rgba(20, 20, 20, 0.7)',
         borderRadius:'20px',
         color:'white',
         fontSize:'20px',
@@ -76,7 +76,7 @@ export default function MealFeedback() {
         fontSize:'20px',
         textShadow:'2px 1px black',
         float:"right",
-        backgroundColor:'rgba(112, 111, 111, 0.39)',
+        backgroundColor: 'rgba(20, 20, 20, 0.7)',
         overflow:'auto'
     }
     return (
