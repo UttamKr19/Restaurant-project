@@ -108,6 +108,13 @@ export default function Login(props) {
                     <div>
                         <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                     </div>
+
+                    <div style={loginStyle}><h6>Guest login credentials:</h6>
+                        <h6>username: "guest@guest.com"</h6>
+                        <h6>password: "guest"</h6>
+                        <hr/>
+                    </div>
+                    <hr/>
                 </div>
             </form>
         </div>
