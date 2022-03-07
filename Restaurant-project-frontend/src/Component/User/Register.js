@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import swal from 'sweetalert';
-import SERVER_API_BASE_URL from '../api/ServerApi';
-import { getUserToken } from './UseToken';
+import SERVER_API_BASE_URL from '../../api/ServerApi';
+import { getUserToken } from '../UseToken';
 
 
 export default function Register() {
@@ -43,7 +43,7 @@ export default function Register() {
                 swal('user registered', 'Congrats', 'success');
                 history.push("/login")
             }
-            else if (res.status == 208) {
+            else if (res.status === 208) {
                 swal('username/email already in use', 'Try different email', 'error');
             }
         }).catch(error => { console.log(error) })

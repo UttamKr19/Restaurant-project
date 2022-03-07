@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import SERVER_API_BASE_URL from '../../api/ServerApi';
-import Login from '../Login';
+import Login from './Login';
 import { getUserToken } from '../UseToken';
 
 
@@ -54,20 +54,19 @@ export default function UserDashboard() {
     }
 
     const prevOrdersStyle = {
-        padding: '10px 20px 0px 20px',
+        padding: '10px',
         margin: 'auto',
         marginTop: '20px',
         backgroundColor: 'rgba(20, 20, 20, 0.7)',
         borderRadius: '20px',
         color: 'white',
-        fontSize: '20px',
         textShadow: '2px 1px black'
     }
     return (
 
         <div className="container component">
             <hr/>
-            <h1 className='text-center text-white'>Welcome {userToken?.username}</h1>
+            <h1 className='text-center text-white'>Welcome <b>{userToken?.username}</b></h1>
             <hr/>
             <div style={prevOrdersStyle} >
                 <hr />

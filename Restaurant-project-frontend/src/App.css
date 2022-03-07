@@ -1,4 +1,8 @@
-body { overflow-x: hidden; }
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
 #root{
     background-image: url("bg-root.jpg");
     background-repeat: no-repeat;
@@ -10,6 +14,7 @@ body { overflow-x: hidden; }
 
 .component{
     min-height: 650px;
+    /* overflow-x: hidden; */
 }
 
 #meal-home{

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from './Login';
+import Login from './User/Login';
 import MealAboutUs from './MealAboutUs';
 import MealCategories from './MealCategories';
 import MealHeader from './MealHeader'
@@ -9,7 +9,7 @@ import MealFeedback from './MealFeedback';
 import MealHome from './MealHome';
 
 import MealOrder from './MealOrder';
-import Register from './Register';
+import Register from './User/Register';
 import './routing.css';
 import UserDashboard from './User/UserDashboard';
 

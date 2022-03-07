@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import swal from 'sweetalert';
-import SERVER_API_BASE_URL from '../api/ServerApi';
-import MealHome from './MealHome';
-import { getUserToken, saveUserToken } from './UseToken';
-import '../App.css';
+import SERVER_API_BASE_URL from '../../api/ServerApi';
+import MealHome from '../MealHome';
+import { getUserToken, saveUserToken } from '../UseToken';
+import '../../App.css';
 
 
 export default function Login(props) {

@@ -15,7 +15,7 @@ export default function MealOrder(props) {
     })
 
     const [meal, setMeal] = useState()
-    console.log(meal)
+    // console.log(meal)
     const [order, setOrder] = useState({
         orderNo: '',
         mealId: '',
@@ -52,7 +52,7 @@ export default function MealOrder(props) {
                             price: Math.floor(Math.random() * 1000),
                             mealId: resItem.idMeal
                         })
-                        console.log(resItem)
+                        // console.log(resItem)
                     }).catch(error => { console.log(error) })
             }
 
@@ -96,9 +96,8 @@ export default function MealOrder(props) {
 
     const orderStyle = {
         padding: '10px 20px 0px 20px',
-        // maxWidth: '600px',  
-        // margin: 'auto',
-        // marginTop: '20px',
+        margin: 'auto',
+        marginTop:"20px",
         backgroundColor: 'rgba(20, 20, 20, 0.7)',
         borderRadius: '20px',
         color: 'white',
@@ -112,9 +111,16 @@ export default function MealOrder(props) {
                     <div className="card" style={orderStyle}>
                         <div className="card-body text-center">
                             <img src={meal?.strMealThumb} className="card-img-top" alt="meal-item-pic" style={{ maxWidth: "400px" }} />
+                            <form onSubmit={placeOrder}>
+                                <div className=" p-10">
+                                    <div>
+                                        <p className='text-center text-white' style={{ fontSize: "40px", color: "black" }}>Rs. <b>{order.price}</b></p>
+                                        <button style={{ height: "50px", fontSize: "24px" }} className="btn btn-success btn-block"><b>Place Order</b></button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <label>Instructions</label>
-                        <p style={{ maxHeight: "180px", overflow: "scroll" }}>{meal?.strInstructions}</p>
+
                     </div>
                 </div>
                 <div className="col-sm-6">
@@ -124,25 +130,14 @@ export default function MealOrder(props) {
 
                             <p className="card-text">Category: <b>{meal?.strCategory}</b></p>
                             <p className='card-text'><label>Area</label>: <b>{meal?.strArea}</b> </p>
-                            <p><label>Recipe</label>: <a href={meal?.strSource} style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{meal?.strSource}</a> </p>
-                            <p><label>Youtube</label>: <a href={meal?.strYoutube} style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{meal?.strYoutube}</a> </p>
-
-                            <label>Quantity</label>
-                            <input type="number" className="form-control"
+                            <label>Quantity: </label> <input type="number" className="form-control"
                                 placeholder="quantity" required="required" id="quantity" min={1}
                                 value={order.quantity} onChange={(e) => setOrder({ ...order, "quantity": e.target.value })}
                             />
-                            <form onSubmit={placeOrder}>
-                                <div className="card p-10">
-                                    <div className="card">
-                                        <p className='text-center' style={{ fontSize: "40px", color: "black" }}>Rs. <b>{order.price}</b></p>
-                                        <div >
-                                            <button style={{height:"50px", fontSize:"24px"}} className="btn btn-success btn-block"><b>Place Order</b></button>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </form>
+                            <br/>
+                            <label>Instructions</label>
+                            <p style={{ maxHeight: "175px", overflow: "scroll" }}>{meal?.strInstructions}</p>
+                            <p>Recipe: <a href={meal?.strSource} >{meal ? "click here" : "not available"}</a>  &nbsp; Youtube:<a href={meal?.strYoutube} >{meal ? "click here" : "not available"}</a> </p>
                         </div>
                     </div>
                 </div>
