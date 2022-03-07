@@ -4,7 +4,7 @@ export default function MealAboutUs() {
     const aboutStyle = {
         marginTop: "0px",
         textShadow: "2px 2px black",
-        backgroundColor: 'rgba(50, 50, 50, 0.6)',
+        backgroundColor: 'rgba(20, 20, 20, 0.7)',
         borderRadius: '20px',
         color: 'white',
     }

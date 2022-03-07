@@ -40,12 +40,15 @@ export default function Register() {
         axios.post(url,user).then((res) => {
             console.log(res);
             if(res.status===201){
+                swal('user registered', 'Congrats', 'success');
                 history.push("/login")
             }
-            
+            else if(res.status==208){
+                swal('username/email already in use', 'Try different email', 'error');
+            }
         }).catch(error => { console.log(error) })
 
-        swal('user registered', 'Congrats', 'success');
+        
     }
 
     if(userToken.isLoggedIn){

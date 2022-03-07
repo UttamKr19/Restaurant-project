@@ -124,8 +124,8 @@ export default function MealOrder(props) {
 
                             <p className="card-text">Category: <b>{meal?.strCategory}</b></p>
                             <p className='card-text'><label>Area</label>: <b>{meal?.strArea}</b> </p>
-                            <p><label>Recipe</label>: <a href={meal?.strSource} style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "500px" }}>{meal?.strSource}</a> </p>
-                            <p><label>Youtube</label>: <a href={meal?.strYoutube} style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "500px" }}>{meal?.strYoutube}</a> </p>
+                            <p><label>Recipe</label>: <a href={meal?.strSource} style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{meal?.strSource}</a> </p>
+                            <p><label>Youtube</label>: <a href={meal?.strYoutube} style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{meal?.strYoutube}</a> </p>
 
                             <label>Quantity</label>
                             <input type="number" className="form-control"

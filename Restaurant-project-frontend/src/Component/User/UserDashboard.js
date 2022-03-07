@@ -66,7 +66,9 @@ export default function UserDashboard() {
     return (
 
         <div className="container component">
+            <hr/>
             <h1 className='text-center text-white'>Welcome {userToken?.username}</h1>
+            <hr/>
             <div style={prevOrdersStyle} >
                 <hr />
                 <h2 className='text-center'>Previous Orders</h2>

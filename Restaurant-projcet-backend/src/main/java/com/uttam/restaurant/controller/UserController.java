@@ -37,6 +37,9 @@ public class UserController {
 	@PostMapping("/user/add")
 	public ResponseEntity<HttpStatus.Series> addUser(@RequestBody User user) {
 		try {
+			if(userService.getUserByEmail(user.getEmail()) != null) {
+				return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).build(); //208
+			}
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
 			userService.addUser(user);
 			return ResponseEntity.status(HttpStatus.CREATED).build();  //201
