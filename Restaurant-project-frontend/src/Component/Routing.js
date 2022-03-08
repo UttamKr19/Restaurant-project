@@ -10,7 +10,6 @@ import MealHome from './MealHome';
 
 import MealOrder from './MealOrder';
 import Register from './User/Register';
-import './routing.css';
 import UserDashboard from './User/UserDashboard';
 
 export default function Routing() {
