@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "order_table")
 public class Order implements Serializable {
@@ -34,6 +36,7 @@ public class Order implements Serializable {
 	private double price;
 
 	@ManyToOne
+	@JsonIgnore
 	private User user;
 
 	public Order() {

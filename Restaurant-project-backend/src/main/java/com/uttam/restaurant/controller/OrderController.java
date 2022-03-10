@@ -40,9 +40,9 @@ public class OrderController {
 	public ResponseEntity<List<Order>> getAllOrders() {
 		try {
 			List<Order> orders = orderService.getAllOrders();
-			if (orders.size() <= 0) {
-				return ResponseEntity.status(HttpStatus.NO_CONTENT).build(); //204
-			}
+//			if (orders.size() <= 0) {
+//				return ResponseEntity.status(HttpStatus.NO_CONTENT).build(); //204
+//			}
 			return ResponseEntity.ok().body(orders); // 200
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build(); // 400
@@ -50,10 +50,9 @@ public class OrderController {
 	}
 
 	@PostMapping("/order")
-	public ResponseEntity<Order> addOrder(@RequestBody Order order) {
+	public ResponseEntity<Order> addOrder(@RequestBody Order order, @RequestParam("username") String username) {
 		try {
-			System.out.println(order);
-			User user=userService.getUserByUname(order.getUser().getUsername());
+			User user=userService.getUserByUname(username);
 			order.setUser(user);
 			orderService.addOrder(order);
 			return ResponseEntity.ok().body(order); // 200

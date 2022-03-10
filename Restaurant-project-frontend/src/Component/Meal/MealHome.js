@@ -11,7 +11,7 @@ export default function MealHome() {
         if (!localStorage.getItem('isBackendUp')) {
             let url = SERVER_API_BASE_URL
             axios.get(url).then((res) => {
-                console.log("testing backend server")
+                // console.log("testing backend server")
                 localStorage.setItem('isBackendUp',true)
             }).catch(error => { console.log(error) })
         }

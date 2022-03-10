@@ -18,8 +18,8 @@ export default function MealFeedback() {
             let isMounted = true;
             axios.get(SERVER_API_BASE_URL + '/feedbacks')
                 .then((res) => {
-                    console.log(res)
-                    console.log(res.data)
+                    // console.log(res)
+                    // console.log(res.data)
                     if (isMounted) setFeedbackList(res.data)
                 }).catch(error => { console.log(error) })
 

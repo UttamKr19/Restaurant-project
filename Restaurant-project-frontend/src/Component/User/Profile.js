@@ -159,7 +159,7 @@ export default function Profile() {
                                         value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })} />
                                 </div>
                                 <div>
-                                    <button className="btn btn-success btn-block">Update</button>
+                                    <button className="btn btn-primary btn-block">Update</button>
                                 </div>
                             </form>
                             <hr />

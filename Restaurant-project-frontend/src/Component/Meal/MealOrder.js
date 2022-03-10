@@ -23,7 +23,6 @@ export default function MealOrder(props) {
         category: undefined,
         quantity: 1,
         price: '',
-        user: ''
     })
 
     useEffect(
@@ -74,11 +73,10 @@ export default function MealOrder(props) {
                 category: order.category,
                 quantity: order.quantity,
                 price: order.price,
-                mealId: order.mealId,
-                user: { username: userToken.username }
+                mealId: order.mealId
             }
 
-            let url = SERVER_API_BASE_URL + '/order'
+            let url = SERVER_API_BASE_URL + '/order/?username='+userToken.username
             // console.log(newOrder)
             axios.post(url, newOrder).then((res) => {
                 swal('Order Placed', 'Congrats', 'success');
