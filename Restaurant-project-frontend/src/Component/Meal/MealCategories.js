@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import MEALDB_API_BASE_URL from '../api/MealDbServiceApi';
+import MEALDB_API_BASE_URL from '../../api/MealDbServiceApi';
 import MealCategoryFood from './MealCategoryFood';
-import '../App.css';
+import '../../App.css';
 
 
 export default function MealCategories() {

@@ -13,6 +13,8 @@ import javax.persistence.Table;
 @Table(name="feedback_table")
 public class Feedback implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long feedbackId;
@@ -65,5 +67,12 @@ public class Feedback implements Serializable{
 		this.feedbackContent = feedbackContent;
 	}
 
+	@Override
+	public String toString() {
+		return "Feedback [feedbackId=" + feedbackId + ", userName=" + userName + ", email=" + email
+				+ ", feedbackContent=" + feedbackContent + "]";
+	}
+
+	
 
 }

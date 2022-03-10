@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { deleteUserToken, getUserToken } from './UseToken';
+import { deleteUserToken,getUserToken } from '../UseToken';
 import swal from 'sweetalert';
 
 
@@ -42,19 +42,6 @@ export default function MealHeader() {
 
     return (
         <div className="routing">
-            {/* <ul style={{ fontSize: '20px', marginBottom: "0px" }}>
-                <li><Link to="/"><img style={{ height: '20px' }} src="..\foodbites_logo.png" alt="logo"></img></Link></li>
-                <li> <Link to="/">Home</Link> </li>
-                <li> <Link to="/categories">Categories</Link> </li>
-                <li> <Link to="/feedback">Feedback</Link> </li>
-                <li> <Link to="/about">About</Link> </li>
-                <li style={{ float: "right", fontSize: "16px" }}>
-                    {userToken.isLoggedIn ?
-                        <><Link to="/dashboard">Welcome {userToken.username}</Link><Link to="/home" style={{ color: 'gainsboro' }} onClick={logoutHandler} >Logout</Link></>
-                        : <><Link to="/register">Sign Up</Link><Link to="/login" >Login</Link></>}
-                </li>
-            </ul> */}
-
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <Link className="navbar-brand" to="/"><img style={{ height: '30px' }} src="..\foodbites_logo.png" alt="logo"></img></Link>
 
@@ -83,12 +70,12 @@ export default function MealHeader() {
                         </li>
 
                     </ul>
-                    <form class="my-2 my-lg-0 text-center">
+                    <form className="my-2 my-lg-0 text-center">
                         {userToken.isLoggedIn ?
                             <>
                                 <ul className="navbar-nav mr-auto">
                                     <li className="nav-item active">
-                                        <Link className="nav-link" to="/dashboard">Profile</Link>
+                                        <Link className="nav-link" to="/profile">Profile</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/home" onClick={logoutHandler}>Log out</Link>

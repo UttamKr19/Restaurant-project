@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import swal from 'sweetalert';
-import SERVER_API_BASE_URL from '../api/ServerApi';
+import SERVER_API_BASE_URL from '../../api/ServerApi';
 
 export default function MealFeedback() {
 
@@ -16,7 +16,7 @@ export default function MealFeedback() {
 
         () => {
             let isMounted = true;
-            axios.get(SERVER_API_BASE_URL + '/feedback/all')
+            axios.get(SERVER_API_BASE_URL + '/feedbacks')
                 .then((res) => {
                     if (isMounted) setFeedbackList(res.data)
                 }).catch(error => { console.log(error) })
@@ -28,15 +28,13 @@ export default function MealFeedback() {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        setFeedbackList([...feedbackList, feedback])
-
-        let url = SERVER_API_BASE_URL + '/feedback/add'
+        let url = SERVER_API_BASE_URL + '/feedback'
 
         axios.post(url, feedback).then((res) => {
-            // console.log(res);
+            setFeedbackList([...feedbackList, feedback])
+            swal('Feedback recieved', 'Congrats', 'success');
         }).catch(error => { console.log(error) })
-
-        swal('Feedback recieved', 'Congrats', 'success');
+        
     }
 
     const feedbackListContent = feedbackList.map((feedback, index) => {

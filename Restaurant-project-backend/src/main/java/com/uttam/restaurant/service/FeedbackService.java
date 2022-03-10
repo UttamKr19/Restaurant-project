@@ -10,4 +10,8 @@ public interface FeedbackService {
 
 	void addFeedback(Feedback feedback);
 
+	void updateFeedback(Feedback feedback);
+
+	void deleteFeedback(Feedback feedback);
+
 }

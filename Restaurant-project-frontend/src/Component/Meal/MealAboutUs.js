@@ -12,7 +12,7 @@ export default function MealAboutUs() {
         <div className="container component" style={aboutStyle} >
             <p className='text-white text-center' style={{ fontSize: "30px", padding: "20px" }} >Food Bites is a restaurant web app, developed solely for learning purposes</p>
             <h3>Features:</h3>
-            <h5>> User can create a new account (SignIn/SignUp).</h5>
+            <h5>> User can create a new account (SignIn/SignUp) or update/delete existing account.</h5>
             <h5>> User can explore food from different categories and order food. </h5>
             <h5>> User can provide anonymous feedbacks without logging into the website.</h5>
             <hr />

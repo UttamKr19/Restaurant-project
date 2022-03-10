@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import MEALDB_API_BASE_URL from '../api/MealDbServiceApi';
-import '../App.css';
+import MEALDB_API_BASE_URL from '../../api/MealDbServiceApi';
+import '../../App.css';
 export default function MealCategoryFood(props) {
 
     const [categoryFoodData, setCategoryFoodData] = useState();

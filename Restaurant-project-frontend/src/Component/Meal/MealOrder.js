@@ -2,9 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
 import swal from 'sweetalert';
-import MEALDB_API_BASE_URL from '../api/MealDbServiceApi';
-import SERVER_API_BASE_URL from '../api/ServerApi';
-import { getUserToken } from './UseToken';
+import MEALDB_API_BASE_URL from '../../api/MealDbServiceApi';
+import SERVER_API_BASE_URL from '../../api/ServerApi';
+import { getUserToken } from '../UseToken';
 
 export default function MealOrder(props) {
     const history = useHistory()
@@ -15,7 +15,7 @@ export default function MealOrder(props) {
     })
 
     const [meal, setMeal] = useState()
-    // console.log(meal)
+
     const [order, setOrder] = useState({
         orderNo: '',
         mealId: '',
@@ -75,16 +75,16 @@ export default function MealOrder(props) {
                 quantity: order.quantity,
                 price: order.price,
                 mealId: order.mealId,
-                user: { email: userToken.username }
+                user: { username: userToken.username }
             }
 
-            let url = SERVER_API_BASE_URL + '/user/order/add'
-
+            let url = SERVER_API_BASE_URL + '/order'
+            // console.log(newOrder)
             axios.post(url, newOrder).then((res) => {
                 swal('Order Placed', 'Congrats', 'success');
             }).catch(error => {
                 console.log(error)
-                swal('Oops!! something went wrong', 'Please try again', 'error');
+                swal('something went wrong!!', 'please try again', 'error');
             })
         }
     }

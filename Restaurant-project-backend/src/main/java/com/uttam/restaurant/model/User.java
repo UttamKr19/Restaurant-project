@@ -1,7 +1,6 @@
 package com.uttam.restaurant.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,10 +17,18 @@ import javax.persistence.Table;
 @Table(name = "user_table")
 public class User implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="u_id")
+	private Long userId;
+	
 	private String name;
 	
-	@Id
+	@Column(unique=true,nullable=false)
+	private String username;
+	
 	@Column(unique = true, nullable=false)
 	private String email;
 	
@@ -33,17 +40,19 @@ public class User implements Serializable {
 
 	private boolean enabled;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "orderId",  fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	private List<Order> orders;
 
 	public User() {
 		super();
 	}
 
-	public User(String name, String email, String password, String address, String role, boolean enabled,
-			List<Order> orders) {
+	public User(Long userId, String name, String username, String email, String password, String address, String role,
+			boolean enabled, List<Order> orders) {
 		super();
+		this.userId = userId;
 		this.name = name;
+		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.address = address;
@@ -52,12 +61,28 @@ public class User implements Serializable {
 		this.orders = orders;
 	}
 
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -108,13 +133,6 @@ public class User implements Serializable {
 		this.orders = orders;
 	}
 
-	@Override
-	public String toString() {
-		return "User [name=" + name + ", email=" + email + ", password=" + password + ", address=" + address + ", role="
-				+ role + ", enabled=" + enabled + ", orders=" + orders + "]";
-	}
-
 	
 	
-
 }

@@ -25,4 +25,14 @@ public class FeedbackServiceImpl implements FeedbackService{
 		feedbackDao.save(feedback);
 	}
 
+	@Override
+	public void updateFeedback(Feedback feedback) {
+		feedbackDao.save(feedback);
+	}
+
+	@Override
+	public void deleteFeedback(Feedback feedback) {
+		feedbackDao.delete(feedback);
+	}
+
 }

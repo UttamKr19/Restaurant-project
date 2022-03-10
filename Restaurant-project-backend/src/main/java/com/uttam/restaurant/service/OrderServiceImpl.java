@@ -25,8 +25,23 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public List<Order> getOrdersByEmail(String email) {
-		return orderDao.getOrdersByEmail(email);
+	public List<Order> getOrdersByUsername(String username) {
+		return orderDao.getOrdersByUsername(username);
+	}
+
+	@Override
+	public void updateOrder(Order order) {
+		orderDao.save(order);
+	}
+
+	@Override
+	public void deleteOrder(Order order) {
+		orderDao.delete(order);
+	}
+
+	@Override
+	public void deleteOrderByUsername(String username) {
+		orderDao.deleteOrderByUsername(username);
 	}
 
 }

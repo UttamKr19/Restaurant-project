@@ -2,9 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import swal from 'sweetalert';
 import SERVER_API_BASE_URL from '../../api/ServerApi';
-import MealHome from '../MealHome';
+import MealHome from '../Meal/MealHome';
 import { getUserToken, saveUserToken } from '../UseToken';
 import '../../App.css';
+import GuestLogin from '../GuestLogin';
 
 
 export default function Login(props) {
@@ -52,7 +53,7 @@ export default function Login(props) {
                     isLoggedIn: true
                 })
                 window.location.reload()
-                // history.push("/dashboard")  //doesn't update the header
+                // history.push("/profile")  //doesn't update the header
             }
             else if (res.status === 204) {
                 swal('wrong credentials', 'please try again', 'warning');
@@ -62,15 +63,17 @@ export default function Login(props) {
             }
 
         }).catch(error => {
-            console.log(error)
-            swal('something went wrong !!', 'Try Again', 'error');
+            if (error.response.status === 406) {
+                swal('wrong credentials', 'please try again', 'warning');
+            }
+            else {
+                swal('something went wrong !!', 'Try Again', 'error'); //400
+            }
         })
 
     }
 
     if (userToken.isLoggedIn) {
-        // history.push("/")
-        // window.location.reload()
         return <MealHome />
     }
 
@@ -108,13 +111,8 @@ export default function Login(props) {
                     <div>
                         <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                     </div>
-
-                    <div style={loginStyle}><h6>Guest login credentials:</h6>
-                        <h6>username: "guest@guest.com"</h6>
-                        <h6>password: "guest"</h6>
-                        <hr/>
-                    </div>
-                    <hr/>
+                    <GuestLogin/>
+                    <hr />
                 </div>
             </form>
         </div>

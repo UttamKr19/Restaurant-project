@@ -2,6 +2,8 @@ package com.uttam.restaurant.service;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.uttam.restaurant.model.Order;
 
 public interface OrderService {
@@ -10,6 +12,15 @@ public interface OrderService {
 
 	void addOrder(Order order);
 
-	List<Order> getOrdersByEmail(String username);
+	List<Order> getOrdersByUsername(String username);
+
+	@Transactional
+	void updateOrder(Order order);
+
+	@Transactional
+	void deleteOrder(Order order);
+
+	@Transactional
+	void deleteOrderByUsername(String username);
 
 }

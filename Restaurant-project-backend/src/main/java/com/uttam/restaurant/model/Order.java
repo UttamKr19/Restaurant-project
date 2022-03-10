@@ -14,6 +14,8 @@ import javax.persistence.Table;
 @Table(name = "order_table")
 public class Order implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true, nullable = false)
@@ -115,12 +117,5 @@ public class Order implements Serializable {
 		this.user = user;
 	}
 
-	@Override
-	public String toString() {
-		return "Order [orderId=" + orderId + ", orderNo=" + orderNo + ", mealId=" + mealId + ", item=" + item
-				+ ", category=" + category + ", quantity=" + quantity + ", price=" + price + ", user=" + user + "]";
-	}
 	
-	
-
 }

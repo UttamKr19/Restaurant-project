@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import SERVER_API_BASE_URL from '../api/ServerApi';
-import '../App.css';
+import SERVER_API_BASE_URL from '../../api/ServerApi';
+import '../../App.css';
+
 export default function MealHome() {
 
    

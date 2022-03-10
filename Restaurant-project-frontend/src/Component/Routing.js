@@ -1,16 +1,15 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './User/Login';
-import MealAboutUs from './MealAboutUs';
-import MealCategories from './MealCategories';
-import MealHeader from './MealHeader'
-import MealFeedback from './MealFeedback';
-import MealHome from './MealHome';
+import MealAboutUs from './Meal/MealAboutUs';
+import MealCategories from './Meal/MealCategories';
+import MealHeader from './Meal/MealHeader';
+import MealFeedback from './Meal/MealFeedback';
+import MealHome from './Meal/MealHome';
 
-import MealOrder from './MealOrder';
+import MealOrder from './Meal/MealOrder';
 import Register from './User/Register';
-import UserDashboard from './User/UserDashboard';
+import Profile from './User/Profile';
 
 export default function Routing() {
     return (
@@ -46,8 +45,11 @@ export default function Routing() {
                     <Route path="/logout">
                         <Login />
                     </Route>
-                    <Route path="/dashboard">
-                        <UserDashboard />
+                    <Route path="/profile">
+                        <Profile />
+                    </Route>
+                    <Route path="*">
+                        <MealHome />
                     </Route>
 
                 </Switch>
