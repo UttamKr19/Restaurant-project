@@ -18,6 +18,8 @@ export default function MealFeedback() {
             let isMounted = true;
             axios.get(SERVER_API_BASE_URL + '/feedbacks')
                 .then((res) => {
+                    console.log(res)
+                    console.log(res.data)
                     if (isMounted) setFeedbackList(res.data)
                 }).catch(error => { console.log(error) })
 
@@ -34,10 +36,9 @@ export default function MealFeedback() {
             setFeedbackList([...feedbackList, feedback])
             swal('Feedback recieved', 'Congrats', 'success');
         }).catch(error => { console.log(error) })
-        
     }
 
-    const feedbackListContent = feedbackList.map((feedback, index) => {
+    const feedbackListContent = feedbackList?.map((feedback, index) => {
         return <tbody key={index}>
             <tr style={{ color: "white" }}>
                 <td>{feedback.userName}</td>

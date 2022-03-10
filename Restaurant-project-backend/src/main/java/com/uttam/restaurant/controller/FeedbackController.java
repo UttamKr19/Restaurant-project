@@ -36,9 +36,9 @@ public class FeedbackController {
 	public ResponseEntity<List<Feedback>> getAllFeedbacks() {
 		try {
 			List<Feedback> feedbacks = feedbackService.getAllFeedbacks();
-			if (feedbacks.size() <= 0) {
-				return ResponseEntity.status(HttpStatus.NO_CONTENT).build(); // 204
-			}
+//			if (feedbacks.size() <= 0) {
+//				return ResponseEntity.status(HttpStatus.NO_CONTENT).build(); // 204
+//			}
 			return ResponseEntity.ok().body(feedbacks);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build(); // 400
