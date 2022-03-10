@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/api/v1")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class HomeController {
 
-	@GetMapping(value={"","/home"})
+	@GetMapping(value={"/","/api/v1/home","/api/v1"})
 	public String home() {
 		return "server-home-running";
 	}
