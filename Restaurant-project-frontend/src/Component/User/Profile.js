@@ -76,7 +76,7 @@ export default function Profile() {
 
     const onDeleteAccount = () => {
         let creds = { username: userToken.username, password: currentPass }
-        console.log(creds)
+        // console.log(creds)
         swal({
             title: "Are you sure?",
             text: "All your data will be permanently deleted!",
