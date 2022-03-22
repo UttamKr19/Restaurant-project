@@ -33,7 +33,8 @@ export default function MealCategories() {
         textShadow: '2px 1px black',
         backgroundColor: "rgba(112, 111, 111, 0.39)",
         cursor: 'pointer',
-        padding:"5px"
+        padding:"5px",
+        margin: '0 auto'
     }
     const contentInit = mealCategoryData?.map((item) => {
         return (

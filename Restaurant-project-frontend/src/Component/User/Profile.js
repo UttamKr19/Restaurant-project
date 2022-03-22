@@ -49,7 +49,6 @@ export default function Profile() {
                     .then((res) => {
                         if (isMounted) {
                             setUser(res.data)
-                            // setUser({...user,password:user.password!=''?'':''})
                         }
                     }).catch(error => { console.log(error) })
             }
@@ -58,14 +57,14 @@ export default function Profile() {
         }, [])
 
 
-    const onSubmit = (e) => {
+    const onUpdateSubmit = (e) => {
         e.preventDefault();
 
         let url = SERVER_API_BASE_URL + '/user'
 
         axios.put(url, user).then((res) => {
             if (res.status === 200) {
-                swal('user registered', 'Congrats', 'success');
+                swal('user info updated', 'Congrats', 'success');
                 history.push("/login")
             }
         }).catch(error => {
@@ -126,7 +125,7 @@ export default function Profile() {
         return <Login />
     }
 
-    const prevOrdersStyle = {
+    const customStyle = {
         padding: '10px',
         margin: 'auto',
         marginTop: '20px',
@@ -140,9 +139,9 @@ export default function Profile() {
         <div className='component'>
             <div className="row" >
                 <div className="col-sm-6">
-                    <div className="card" style={prevOrdersStyle}>
+                    <div className="card" style={customStyle}>
                         <div className="card-body" >
-                            <form onSubmit={onSubmit}>
+                            <form onSubmit={onUpdateSubmit}>
                                 <div>
                                     <label>Username:  </label> <span>{user.username}</span><br />
                                     <label>Email: </label> <span>{user.email}</span>
@@ -159,6 +158,7 @@ export default function Profile() {
                                         value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })} />
                                 </div>
                                 <div>
+                                    <button className="btn btn-secondary btn-block" onClick={(e)=>setUser({ ...user, password: '' })}>Clear password</button>
                                     <button className="btn btn-primary btn-block">Update</button>
                                 </div>
                             </form>
@@ -178,7 +178,7 @@ export default function Profile() {
                     </div>
                 </div>
                 <div className="col-sm-6">
-                    <div className="card" style={prevOrdersStyle}>
+                    <div className="card" style={customStyle}>
                         <div className="card-body" style={{ height: "600px", overflow: "auto" }} >
                             <h3 className="text-center">Recent Orders</h3>
 

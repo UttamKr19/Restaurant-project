@@ -51,7 +51,7 @@ export default function MealFeedback() {
     const feedbackStyle = {
         backgroundColor: 'rgba(20, 20, 20, 0.7)',
         color: 'white',
-        textShadow: '2px 1px black',
+        textShadow: '1px 1px black',
         borderRadius: '20px',
         marginTop: '20px',
     }

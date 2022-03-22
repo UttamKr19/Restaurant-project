@@ -134,7 +134,7 @@ export default function MealOrder(props) {
                             />
                             <br/>
                             
-                            <label>Watch Video {"https://www.youtube.com/embed/"+meal?.strYoutube.split("=")[1]}</label>
+                            <label>Watch Video</label>
                             <div className="text-center">
                                 <iframe 
                                         style={{maxWidth:640, width:'100%', height:250, overflow:'visible'}}

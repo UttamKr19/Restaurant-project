@@ -74,7 +74,6 @@ export default function Register() {
 
     return (
         <div className="container component" >
-            {/* {props.backButton!=undefined?<div style={{float:'right',margin:'20px'}} onClick={goBack}><button  className="btn btn-sm btn-danger" >X</button></div>:null} */}
             <div id="registrationForm" style={registerStyle}>
                 <form onSubmit={onSubmit}>
 
