@@ -133,9 +133,22 @@ export default function MealOrder(props) {
                                 value={order.quantity} onChange={(e) => setOrder({ ...order, "quantity": e.target.value })}
                             />
                             <br/>
+                            
+                            <label>Watch Video</label>
+                            <div className="text-center">
+                                <iframe 
+                                        style={{maxWidth:640, width:'80%', height:250, overflow:'visible'}}
+                                        src={"https://www.youtube.com/embed/"+meal?.strYoutube.split("=")[1]}
+                                        frameBorder='0'
+                                        allow='autoplay; encrypted-media'
+                                        allowFullScreen
+                                        title={meal?.strMeal}
+                                />
+                            </div>
+                            <br/>
                             <label>Instructions</label>
                             <p style={{ maxHeight: "175px", overflow: "scroll" }}>{meal?.strInstructions}</p>
-                            <p>Recipe: <a href={meal?.strSource} >{meal ? "click here" : "not available"}</a>  &nbsp; Youtube:<a href={meal?.strYoutube} >{meal ? "click here" : "not available"}</a> </p>
+                            <p>Recipe: <a href={meal?.strSource} >{meal ? "click here" : "not available"}</a> </p>
                         </div>
                     </div>
                 </div>
