@@ -18,14 +18,13 @@ import com.uttam.restaurant.model.Feedback;
 import com.uttam.restaurant.service.FeedbackService;
 
 @RestController
-@RequestMapping(value = "/api/v1")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class FeedbackController {
 
 	@Autowired
 	private FeedbackService feedbackService;
 
-	@GetMapping("/feedback-home")
+	@GetMapping({"/feedback-home","feedback"})
 	public String homeFeedback() {
 		return "feedback-controller-running";
 	}

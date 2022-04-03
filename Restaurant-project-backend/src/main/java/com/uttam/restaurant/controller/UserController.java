@@ -22,8 +22,9 @@ import com.uttam.restaurant.service.OrderService;
 import com.uttam.restaurant.service.UserService;
 
 @RestController
-@RequestMapping(value = "/api/v1")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = {"http://localhost:3000"}, 
+			allowedHeaders = {"GET", "HEAD", "POST", "PUT", "DELETE", "TRACE", "OPTIONS", "PATCH"}, 
+			allowCredentials="")
 public class UserController {
 
 	@Autowired
@@ -150,5 +151,21 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build(); // 400
 		}
 	}
+	
+	@PostMapping("/auth")
+	public ResponseEntity<HttpStatus.Series> authenticateUser(@RequestBody LoginCredentials credentials) {
+		try {
+			String username = credentials.getUsername();
+			String password = credentials.getPassword();
 
+			User user = userService.getUserByUname(username);
+			if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+				return ResponseEntity.status(HttpStatus.ACCEPTED).build(); // 202
+			}
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build(); // 406
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build(); // 400
+		}
+	}
+	
 }

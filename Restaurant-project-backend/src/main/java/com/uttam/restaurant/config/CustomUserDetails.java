@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +15,7 @@ public class CustomUserDetails implements UserDetails{
 
 	private static final long serialVersionUID = 1L;
 
-	//	@Autowired
+	@Autowired
 	private User user;
 	
 	public CustomUserDetails(User user) {
@@ -25,7 +26,7 @@ public class CustomUserDetails implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> grantedAuthorities=new ArrayList<GrantedAuthority>();
-		System.out.println(user.getRole());
+		System.err.println("getAuthorities "+user.getRole());
 		SimpleGrantedAuthority simpleGrantedAuthority=new SimpleGrantedAuthority(user.getRole());
 		grantedAuthorities.add(simpleGrantedAuthority);
 		return grantedAuthorities;

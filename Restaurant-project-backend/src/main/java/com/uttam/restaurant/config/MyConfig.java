@@ -10,6 +10,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -21,7 +24,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 	public UserDetailsService getUserDetailService() {
 		return new UserDetailsServiceImpl();
 	}
-
+	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -37,25 +40,68 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 		return daoAuthenticationProvider;
 	}
 
-	// actual configure methods
+	
+//	 @Bean
+//	 CorsConfigurationSource corsConfigurationSource() {
+//	        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//	        source.registerCorsConfiguration("http://localhost:3000/", new CorsConfiguration().applyPermitDefaultValues());
+//	        return source;
+//	 }
+	
 
+	// actual configure methods
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// tells which kind of authentication, whether in-memory, or DB or something else
 		auth.authenticationProvider(authenticationProvider());
+		auth.inMemoryAuthentication().withUser("user").password(passwordEncoder().encode("pass")).roles("ADMIN");
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		// tells which route to authorize based on role, disable cross-site request
-		// forgery
+		// tells which route to authorize based on role, 
+		// disable cross-site request forgery
 
 		//permitting all
-		http.cors().and().csrf().disable().authorizeRequests()
-							.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-							.antMatchers("/**").permitAll()
-							.anyRequest().authenticated();
+		http.csrf().disable()
+			.authorizeRequests()
+				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+				.antMatchers("/","/home","/feedback-home","/feedback","/feedbacks","/user","/auth").permitAll()
+				.antMatchers("/order**","/user/delete","/test-user-privileges").access("hasRole('USER')")
+				.antMatchers("/order","/orders","/user","/users").access("hasRole('ADMIN')")
+				.anyRequest().authenticated();
+		
+		http.formLogin()
+			.loginProcessingUrl("/auth")
+			.defaultSuccessUrl ("/", true)
+			.failureUrl("/login?error=true");
+		
+		http.httpBasic();
+		
+		http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
 
+		
+//		http.cors().and().csrf().disable()
+//        .authorizeRequests()
+//            // add your resources here. By default, spring security blocks all resources that is not under /resources/**
+//            .antMatchers(HttpMethod.GET, "/", "/js/**", "/css/**", "/images/**").permitAll()
+//            // prevent spring security from blocking some pages that doesn't require authentication to be access here.
+//            .antMatchers("/forgot-password", "/change-password").permitAll()
+//            .anyRequest().authenticated()
+//        .and()
+//        // login configuration
+//        .formLogin()
+//            .loginPage("/login") // can either be mapping or file
+//            .permitAll()
+//        .and()
+//        // logout configuration
+//        .logout()
+//            .logoutUrl("/logout")
+//            .logoutSuccessUrl("/")
+//            .invalidateHttpSession(true)
+//            .deleteCookies("JSESSIONID")
+//            .clearAuthentication(true)
+//            .permitAll();
 	}
 
 }

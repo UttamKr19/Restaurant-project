@@ -21,7 +21,6 @@ import com.uttam.restaurant.service.OrderService;
 import com.uttam.restaurant.service.UserService;
 
 @RestController
-@RequestMapping(value = "/api/v1")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class OrderController {
 
