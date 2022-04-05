@@ -53,7 +53,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// tells which kind of authentication, whether in-memory, or DB or something else
-		auth.authenticationProvider(authenticationProvider());
+//		auth.authenticationProvider(authenticationProvider());
 		auth.inMemoryAuthentication().withUser("user").password(passwordEncoder().encode("pass")).roles("ADMIN");
 	}
 
@@ -62,23 +62,27 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 		// tells which route to authorize based on role, 
 		// disable cross-site request forgery
 
-		//permitting all
-		http.csrf().disable()
-			.authorizeRequests()
-				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-				.antMatchers("/","/home","/feedback-home","/feedback","/feedbacks","/user","/auth").permitAll()
-				.antMatchers("/order**","/user/delete","/test-user-privileges").access("hasRole('USER')")
-				.antMatchers("/order","/orders","/user","/users").access("hasRole('ADMIN')")
-				.anyRequest().authenticated();
+		http.cors().and().csrf().disable().authorizeRequests()
+		.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+		.antMatchers("/**").permitAll()
+		.anyRequest().authenticated();
 		
-		http.formLogin()
-			.loginProcessingUrl("/auth")
-			.defaultSuccessUrl ("/", true)
-			.failureUrl("/login?error=true");
+//		http.csrf().disable()
+//			.authorizeRequests()
+//				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//				.antMatchers("/","/home","/feedback-home","/feedback","/feedbacks","/user","/auth").permitAll()
+//				.antMatchers("/order**","/user/delete","/test-user-privileges").access("hasRole('USER')")
+//				.antMatchers("/order","/orders","/user","/users").access("hasRole('ADMIN')")
+//				.anyRequest().authenticated();
 		
-		http.httpBasic();
+//		http.formLogin()
+//			.loginProcessingUrl("/auth")
+//			.defaultSuccessUrl ("/", true)
+//			.failureUrl("/login?error=true");
 		
-		http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
+//		http.httpBasic();
+		
+//		http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
 
 		
 //		http.cors().and().csrf().disable()
